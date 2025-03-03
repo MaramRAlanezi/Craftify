@@ -25,8 +25,9 @@ struct HomepageView: View {
                         
                         HStack(spacing: 2) {
                             Text("Hello ")
-                                .font(.title)
-                                .fontWeight(.heavy)
+                                .font(.custom("Poppins-Bold", size: 24))
+                                //.font(.title)
+                                //.fontWeight(.heavy)
                             
                             Image("hi")
                                 .resizable()
@@ -44,14 +45,15 @@ struct HomepageView: View {
                         
                         VStack(spacing: 30) {
                             Text("Get an Activity based on your supplies ")
-                                .font(.subheadline)
-                                .fontWeight(.bold)
+                                .font(.custom("Poppins-Regular", size: 16))
+//                                .font(.subheadline)
+//                                .fontWeight(.bold)
                             
                             Button(action: {
                                 path.append("ContentView") // Navigate
                             }) {
                                 Text("For You >")
-                                    .fontWeight(.bold)
+                                    .font(.custom("Poppins-Bold", size: 18))
                                     .foregroundColor(.white)
                                     .padding()
                                     .frame(width: 232, height: 40)
@@ -65,8 +67,7 @@ struct HomepageView: View {
                     
                     HStack {
                         Text(" All Activities")
-                            .font(.headline)
-                            .fontWeight(.heavy)
+                            .font(.custom("Poppins-Bold", size: 18))
                         
                         Spacer()
                         
@@ -74,8 +75,9 @@ struct HomepageView: View {
                             path.append("ContentView") // Navigate
                         }) {
                             Text("See All >")
+                                .font(.custom("Poppins-Regular", size: 16))
                                 .font(.body)
-                                .fontWeight(.bold)
+                               
                                 .foregroundColor(Color("darkOrange"))
                         }
                     }
@@ -101,7 +103,8 @@ struct HomepageView: View {
                                                 .cornerRadius(15)
                                             
                                             Text("Activity Name")
-                                                .fontWeight(.semibold)
+                                                .font(.custom("Poppins-SemiBold", size: 16))
+                                                
                                                 .foregroundColor(.black) // Ensures text is visible
                                         }
                                     }
@@ -131,6 +134,7 @@ struct HomepageView: View {
                                     .font(.system(size: 24))
                                     .foregroundColor(selectedTab == "Supplies" ? Color("pigOrange") : Color.gray)
                                 Text("Supplies")
+                                    .font(.custom("Poppins-Regular", size: 14))
                                     .font(.footnote)
                                     .foregroundColor(selectedTab == "Supplies" ? Color("pigOrange") : Color.gray)
                             }
@@ -146,6 +150,7 @@ struct HomepageView: View {
                                     .font(.system(size: 24))
                                     .foregroundColor(selectedTab == "Home" ? Color("pigOrange") : Color.gray)
                                 Text("Home")
+                                    .font(.custom("Poppins-Regular", size: 14))
                                     .font(.footnote)
                                     .foregroundColor(selectedTab == "Home" ? Color("pigOrange") : Color.gray)
                             }
@@ -162,6 +167,7 @@ struct HomepageView: View {
                                     .font(.system(size: 24))
                                     .foregroundColor(selectedTab == "Favorite" ? Color("pigOrange") : Color.gray)
                                 Text("Favorite")
+                                    .font(.custom("Poppins-Regular", size: 14))
                                     .font(.footnote)
                                     .foregroundColor(selectedTab == "Favorite" ? Color("pigOrange") : Color.gray)
                             }
