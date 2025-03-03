@@ -39,7 +39,7 @@ struct LaunchScreen: View {
                             Image("t").resizable().scaledToFit().frame(width: 40, height: 50)
                                 .scaleEffect(scales[4]).opacity(opacities[4])
 
-                            Image("i").resizable().scaledToFit().frame(width: 24, height: 50) // Narrower "i"
+                            Image("i").resizable().scaledToFit().frame(width: 24, height: 50)
                                 .scaleEffect(scales[5]).opacity(opacities[5])
 
                             Image("ff").resizable().scaledToFit().frame(width: 40, height: 50)
@@ -50,9 +50,6 @@ struct LaunchScreen: View {
                         }
 
 
-
-
-                        // Text BELOW the logo
                         Text("Endless Crafts, Endless Fun!")
                             .font(.system(size: 20))
                             .fontWeight(.bold)
