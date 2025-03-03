@@ -24,30 +24,33 @@ struct LaunchScreen: View {
 
                     VStack(spacing: 10) {
                         HStack(spacing: 0) {
-                            Image("C").resizable().scaledToFit().frame(width: 50, height: 50)
+                            Image("C").resizable().scaledToFit().frame(width: 40, height: 50)
                                 .scaleEffect(scales[0]).opacity(opacities[0])
 
-                            Image("r").resizable().scaledToFit().frame(width: 50, height: 50)
+                            Image("r").resizable().scaledToFit().frame(width: 40, height: 50)
                                 .scaleEffect(scales[1]).opacity(opacities[1])
 
-                            Image("a").resizable().scaledToFit().frame(width: 50, height: 50)
+                            Image("a").resizable().scaledToFit().frame(width: 40, height: 50)
                                 .scaleEffect(scales[2]).opacity(opacities[2])
 
-                            Image("f").resizable().scaledToFit().frame(width: 50, height: 50)
+                            Image("f").resizable().scaledToFit().frame(width: 40, height: 50)
                                 .scaleEffect(scales[3]).opacity(opacities[3])
 
-                            Image("t").resizable().scaledToFit().frame(width: 50, height: 50)
+                            Image("t").resizable().scaledToFit().frame(width: 40, height: 50)
                                 .scaleEffect(scales[4]).opacity(opacities[4])
 
-                            Image("i").resizable().scaledToFit().frame(width: 50, height: 50)
+                            Image("i").resizable().scaledToFit().frame(width: 24, height: 50) // Narrower "i"
                                 .scaleEffect(scales[5]).opacity(opacities[5])
 
-                            Image("ff").resizable().scaledToFit().frame(width: 50, height: 50)
+                            Image("ff").resizable().scaledToFit().frame(width: 40, height: 50)
                                 .scaleEffect(scales[6]).opacity(opacities[6])
 
-                            Image("y").resizable().scaledToFit().frame(width: 50, height: 50)
+                            Image("y").resizable().scaledToFit().frame(width: 40, height: 50)
                                 .scaleEffect(scales[7]).opacity(opacities[7])
                         }
+
+
+
 
                         // Text BELOW the logo
                         Text("Endless Crafts, Endless Fun!")
