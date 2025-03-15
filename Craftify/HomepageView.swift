@@ -49,9 +49,8 @@ struct HomepageView: View {
 //                                .font(.subheadline)
 //                                .fontWeight(.bold)
                             
-                            Button(action: {
-                                path.append("ContentView") // Navigate
-                            }) {
+                            NavigationLink(destination: SuppliesView()){
+                                
                                 Text("For You >")
                                     .font(.custom("Poppins-Bold", size: 18))
                                     .foregroundColor(.white)
@@ -60,6 +59,8 @@ struct HomepageView: View {
                                     .background(Color("pigOrange"))
                                     .cornerRadius(15)
                             }
+                                
+                            
                         }
                     }
                     

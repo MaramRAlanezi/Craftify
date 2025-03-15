@@ -8,16 +8,22 @@
 import SwiftUI
 
 struct SuppliesView: View {
-    let supplies = ["Paper", "Pencil", "Eraser", "Ruler", "Colors", "Scissors", "Soap", "Tape", "Water bottel", "Cards", "Markers", "Ice Cubes", "Stickers", "Glue", "Ribbon", "Binder", "Stapler", "Pencil Case", "Pen Case", "Ruler Case", "Colors Case", "Eraser Case", "Paper Case", "Stickers Case", "Glue Case", "Tape Case", "Water bottel Case", "Cards Case", "Markers Case", "Ice Cubes Case", "Ribbon Case", "Binder Case", "Stapler Case"]
+    
+    let supplies = ["Paper", "Pencil", "Ball", "Beads", "Buttons", "Scissors", "Clothespins", "Coffee Filters", "Craft Sticks", "Cardboard", "Marker", "Egg Carton", "Stickers", "Glue", "Glitter", "Straws", "Stapler", "Pip Cleaners", "Toilet Paper Rolls", "Wiggly Eyes", "Paint Brush", "Yarn", "Popsicle Sticks", "Paper Plate", "Googly Eyes", "Cardstock Paper", "Cotton String", "Paper Cup", "Twine", "Cork Pieces", "Box lid", "Feathers", "Rhinestones"]
+    
+    let vocabulary = ["Paper":0, "Pencil":1, "Ball":2, "Beads":3, "Buttons":4, "Scissors":5, "Clothespins":6, "Coffee Filters":7, "Craft Sticks":8, "Cardboard":9, "Marker":10, "Egg Carton":11, "Stickers":12, "Glue":13, "Glitter":14, "Straws":15, "Stapler":16, "Pip Cleaners":17, "Toilet Paper Rolls":18, "Wiggly Eyes":19, "Paint Brush":20, "Yarn":21, "Popsicle Sticks":22, "Paper Plate":23, "Googly Eyes":24, "Cardstock Paper":25, "Cotton String":26, "Paper Cup":27, "Twine":28, "Cork Pieces":29, "Box lid":30, "Feathers":31, "Rhinestones":32]
+    
     @State private var selectedSupplies: Set<String> = []
     @State private var selectedSupply: String? = nil
+    @State private var isNavigating = false
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
         
-        NavigationView{
+        NavigationStack{
             ZStack{
                 Color.background
-
+                
                 
                 VStack(spacing: 10){
                     GeometryReader { geometry in
@@ -59,17 +65,22 @@ struct SuppliesView: View {
                     }
                 }.padding()
                 
-            } .toolbar {
+            }.navigationBarBackButtonHidden(true)
+            .toolbar {
                 ToolbarItem(placement: .principal) {
                     Text("Pick Your Supplies")
                         .font(.custom("Poppins-Bold", size: 22)) // Custom font and size
                         .foregroundColor(.black) // Optional: Custom color
                 }
+                
             }
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbarBackground(Color.background, for: .navigationBar)
-                .toolbarBackground(.visible, for: .navigationBar)
-        }
+            
+            .navigationDestination(isPresented: $isNavigating) {
+                ForYouView(selectedSupplies: Array(selectedSupplies), vocabulary: vocabulary)}
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbarBackground(Color.background, for: .navigationBar)
+            .toolbarBackground(.visible, for: .navigationBar)
+        }.accentColor(Color.pigOrange)
         
     }
 }
