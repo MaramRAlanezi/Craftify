@@ -54,7 +54,7 @@ struct SuppliesView: View {
                     }
                     
                     Button(action: {
-                        
+                        isNavigating = true
                     }){
                         Text("See Activities")
                             .font(Font.custom("Poppins-Bold", size: 16))
@@ -65,7 +65,8 @@ struct SuppliesView: View {
                     }
                 }.padding()
                 
-            }.navigationBarBackButtonHidden(true)
+            }
+            .navigationBarBackButtonHidden(true)
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     Text("Pick Your Supplies")

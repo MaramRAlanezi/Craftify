@@ -8,6 +8,17 @@
 import SwiftUI
 import CoreML
 
+
+
+struct Craft: Identifiable {
+    let id = UUID()
+    let name: String
+    let imageURL: String
+    let supplies: String
+    let instructions: String
+}
+
+
 struct ForYouView: View {
     
     
@@ -25,32 +36,36 @@ struct ForYouView: View {
                 ScrollView {
                     LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 15) {
                         ForEach(recommendedCrafts) { craft in
-                            VStack{
-                                AsyncImage(url: URL(string: craft.imageURL)) { image in
-                                    image.resizable().scaledToFit().frame(height: 150).cornerRadius(10)
-                                } placeholder: {
-                                    ProgressView()
+                            NavigationLink(destination: ActivityDetailsView(craft: craft)){
+                                VStack{
+                                    AsyncImage(url: URL(string: craft.imageURL)) { image in
+                                        image.resizable().scaledToFit().frame(height: 150).cornerRadius(10)
+                                    } placeholder: {
+                                        ProgressView()
+                                    }
+                                    
+                                    Text(craft.name)
+                                        .font(.headline)
+                                        .foregroundColor(.black)
+                                        .frame(maxWidth: .infinity)
+                                        .padding(.vertical, 8)
+                                        .background(Color.white)
+                                        .cornerRadius(10)
                                 }
-                                
-                                Text(craft.name)
-                                    .font(.headline)
-                                    .foregroundColor(.black)
-                                    .frame(maxWidth: .infinity)
-                                    .padding(.vertical, 8)
-                                    .background(Color.white)
-                                    .cornerRadius(10)
+                                .frame(width: 160)
+                                .background(Color.white)
+                                .cornerRadius(15)
+                                .shadow(radius: 5)
                             }
-                            .frame(width: 160)
-                            .background(Color.white)
-                            .cornerRadius(15)
-                            .shadow(radius: 5)
-                            
                         }
                     }
                     .padding()
                 }
             }
             .background(Color.background.ignoresSafeArea())
+            .onAppear {
+                fetchCrafts()
+            }
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     Text("For You")
@@ -150,13 +165,7 @@ struct ForYouView: View {
 }
 
 
-struct Craft: Identifiable {
-    let id = UUID()
-    let name: String
-    let imageURL: String
-    let supplies: String
-    let instructions: String
-}
+
 
 
 #Preview {
