@@ -36,6 +36,7 @@ struct ContentView: View {
             }.accentColor(.pigOrange)
             
         }.navigationBarBackButtonHidden(true)
+            .accentColor(Color.pigOrange)
         
     }
 }

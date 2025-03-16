@@ -26,7 +26,7 @@ struct ForYouView: View {
     @State private var recommendedCrafts: [Craft] = []
     let model = try? Craft_MatchingNew(configuration: MLModelConfiguration())
     let vocabulary: [String: Int]
-    
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
         
@@ -72,6 +72,16 @@ struct ForYouView: View {
                         .font(.custom("Poppins-Bold", size: 22)) // Custom font and size
                         .foregroundColor(.black) // Optional: Custom color
                 }
+    
+                ToolbarItem(placement: .navigationBarLeading){
+                        Button(action: {
+                            presentationMode.wrappedValue.dismiss()
+                        }){
+                            Image(systemName: "chevron.left").foregroundColor(Color.pigOrange)
+                                Text("Back")
+                                .foregroundColor(Color.pigOrange)
+                        }
+                    }
             }
             
             .navigationBarTitleDisplayMode(.inline)

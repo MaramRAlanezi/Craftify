@@ -55,7 +55,8 @@ struct AllActivityView: View {
                .onAppear {
                    loadAllCrafts()
                }
-           }
+               
+           }.accentColor(Color.pigOrange)
        }
 
        // ✅ Load all crafts from JSON file

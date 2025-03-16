@@ -11,6 +11,7 @@ struct ActivityDetailsView: View {
     
     let craft: Craft
     @State private var isFavorite = false
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
         
@@ -122,6 +123,17 @@ struct ActivityDetailsView: View {
             .navigationBarTitleDisplayMode(.inline)
             .onAppear {
                 isFavorite = isCraftFavorite()
+            }
+            .toolbar{
+                ToolbarItem(placement: .navigationBarLeading){
+                        Button(action: {
+                            presentationMode.wrappedValue.dismiss()
+                        }){
+                            Image(systemName: "chevron.left").foregroundColor(Color.pigOrange)
+                                Text("Back")
+                                .foregroundColor(Color.pigOrange)
+                        }
+                    }
             }
         }.navigationBarBackButtonHidden(true)
     }
