@@ -123,7 +123,7 @@ struct ActivityDetailsView: View {
             .onAppear {
                 isFavorite = isCraftFavorite()
             }
-        }
+        }.navigationBarBackButtonHidden(true)
     }
     
     

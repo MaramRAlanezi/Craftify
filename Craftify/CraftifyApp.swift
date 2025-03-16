@@ -11,7 +11,8 @@ import SwiftUI
 struct CraftifyApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            //ContentView()
+            LaunchScreen()
         }
     }
 }

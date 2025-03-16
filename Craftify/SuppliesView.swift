@@ -66,7 +66,7 @@ struct SuppliesView: View {
                 }.padding()
                 
             }
-            .navigationBarBackButtonHidden(true)
+            
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     Text("Pick Your Supplies")
@@ -82,6 +82,7 @@ struct SuppliesView: View {
             .toolbarBackground(Color.background, for: .navigationBar)
             .toolbarBackground(.visible, for: .navigationBar)
         }.accentColor(Color.pigOrange)
+        .navigationBarBackButtonHidden(true)
         
     }
 }

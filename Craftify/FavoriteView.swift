@@ -71,7 +71,7 @@ struct FavoriteView: View {
             .toolbarBackground(.visible, for: .navigationBar)
             
             
-        }
+        }.navigationBarBackButtonHidden(true)
     }
     
     // ✅ Load Saved Favorites

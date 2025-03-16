@@ -101,7 +101,7 @@ struct HomepageView: View {
                                             Text(craft.name)
                                                 .font(.custom("Poppins-SemiBold", size: 16))
                                                 .foregroundColor(.black)
-                                        }
+                                        }.frame(width: 160, height: 137)
                                     }
                                 }
                             }

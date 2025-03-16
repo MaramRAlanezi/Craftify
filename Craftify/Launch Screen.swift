@@ -14,7 +14,7 @@ struct LaunchScreen: View {
 
             VStack(spacing: 20) {
                 if isActive {
-                    LaunchScreen()
+                    OnboardingView()
                 } else {
                     Image("logo")
                         .resizable()
