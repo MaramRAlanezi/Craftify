@@ -10,6 +10,7 @@ import SwiftUI
 struct AllActivityView: View {
     
     @State private var allActivities: [Craft] = []
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
            NavigationStack {
@@ -48,6 +49,16 @@ struct AllActivityView: View {
                            .foregroundColor(.black) // Optional: Custom color
                    }
                    
+                   ToolbarItem(placement: .navigationBarLeading){
+                           Button(action: {
+                               presentationMode.wrappedValue.dismiss()
+                           }){
+                               Image(systemName: "chevron.left").foregroundColor(Color.pigOrange)
+                                   Text("Back")
+                                   .foregroundColor(Color.pigOrange)
+                           }
+                       }
+                   
                }
                .navigationBarTitleDisplayMode(.inline)
                .toolbarBackground(Color.background, for: .navigationBar)
@@ -57,6 +68,7 @@ struct AllActivityView: View {
                }
                
            }.accentColor(Color.pigOrange)
+            .navigationBarBackButtonHidden(true)
        }
 
        // ✅ Load all crafts from JSON file

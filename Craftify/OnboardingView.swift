@@ -7,6 +7,27 @@
 
 import SwiftUI
 
+
+
+struct HandleOnboardingView: View {
+    @State private var isSplashScreenActive = true // State variable to control the splash screen
+    @State private var isMainPageActive = false // State variable to control the main page
+    
+    var body: some View {
+        
+        // OnboardingView1 {isMainPageActive = true}
+        Group {
+             if isMainPageActive {
+                 ContentView() // Show the main page
+            } else {
+                OnboardingView{
+                    isMainPageActive = true // Navigate to the main page
+                }
+            }
+        }
+    }
+}
+
 struct OnboardingView: View {
     @State private var currentPage = 0
     
@@ -18,7 +39,7 @@ struct OnboardingView: View {
     
     let onboardingImages = ["ob1", "ob2"]
     @State private var isOnboardingComplete = false
-    
+    var onComplete: () -> Void
     var body: some View {
         NavigationStack{
             VStack {
@@ -72,7 +93,7 @@ struct OnboardingView: View {
                         if currentPage < 1 {
                             currentPage += 1
                         } else {
-                            isOnboardingComplete = true
+                            onComplete()
                         }
                     }) {
                         Image("BackArrow")
@@ -89,15 +110,17 @@ struct OnboardingView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color.white)
-            .navigationDestination(isPresented: $isOnboardingComplete) {
-                ContentView()
-            }
+//            .navigationDestination(isPresented: $isOnboardingComplete) {
+//                ContentView()
+//            }
+            
             
             
         }.navigationBarBackButtonHidden(true)
+        .accentColor(Color.pigOrange)
     }
 }
 
 #Preview {
-    OnboardingView()
+    HandleOnboardingView()
 }

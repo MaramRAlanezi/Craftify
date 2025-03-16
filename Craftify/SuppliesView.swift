@@ -20,7 +20,7 @@ struct SuppliesView: View {
     
     var body: some View {
         
-        NavigationStack{
+        NavigationView{
             ZStack{
                 Color.background
                 
@@ -53,9 +53,8 @@ struct SuppliesView: View {
                         }
                     }
                     
-                    Button(action: {
-                        isNavigating = true
-                    }){
+                    NavigationLink(destination: ForYouView(selectedSupplies: Array(selectedSupplies), vocabulary: vocabulary)){
+                        
                         Text("See Activities")
                             .font(Font.custom("Poppins-Bold", size: 16))
                             .frame(maxWidth: .infinity, maxHeight: 50)
@@ -63,6 +62,16 @@ struct SuppliesView: View {
                             .foregroundColor(.white)
                             .cornerRadius(15)
                     }
+//                    Button(action: {
+//                        isNavigating = true
+//                    }){
+//                        Text("See Activities")
+//                            .font(Font.custom("Poppins-Bold", size: 16))
+//                            .frame(maxWidth: .infinity, maxHeight: 50)
+//                            .background(Color.pigOrange)
+//                            .foregroundColor(.white)
+//                            .cornerRadius(15)
+//                    }
                 }.padding()
                 
             }
@@ -74,10 +83,20 @@ struct SuppliesView: View {
                         .foregroundColor(.black) // Optional: Custom color
                 }
                 
+//                ToolbarItem(placement: .navigationBarLeading){
+//                        Button(action: {
+//                            presentationMode.wrappedValue.dismiss()
+//                        }){
+//                            Image(systemName: "chevron.left").foregroundColor(Color.pigOrange)
+//                                Text("Back")
+//                                .foregroundColor(Color.pigOrange)
+//                        }
+//                    }
+                
             }
             
-            .navigationDestination(isPresented: $isNavigating) {
-                ForYouView(selectedSupplies: Array(selectedSupplies), vocabulary: vocabulary)}
+//            .navigationDestination(isPresented: $isNavigating) {
+//                ForYouView(selectedSupplies: Array(selectedSupplies), vocabulary: vocabulary)}
             .navigationBarTitleDisplayMode(.inline)
             .toolbarBackground(Color.background, for: .navigationBar)
             .toolbarBackground(.visible, for: .navigationBar)
