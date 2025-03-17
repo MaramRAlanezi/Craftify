@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     var body: some View {
-        NavigationView{
+        //NavigationView{
             
             TabView{
                
@@ -35,8 +35,8 @@ struct ContentView: View {
          
             }.accentColor(.pigOrange)
             
-        }.navigationBarBackButtonHidden(true)
-            .accentColor(Color.pigOrange)
+//        }.navigationBarBackButtonHidden(true)
+//            .accentColor(Color.pigOrange)
         
     }
 }

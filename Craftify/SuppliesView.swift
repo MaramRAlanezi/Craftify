@@ -18,6 +18,11 @@ struct SuppliesView: View {
     @State private var isNavigating = false
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
+    var isPushed: Bool {
+           
+            return presentationMode.wrappedValue.isPresented
+        }
+    
     var body: some View {
         
         NavigationView{
@@ -83,15 +88,16 @@ struct SuppliesView: View {
                         .foregroundColor(.black) // Optional: Custom color
                 }
                 
-//                ToolbarItem(placement: .navigationBarLeading){
-//                        Button(action: {
-//                            presentationMode.wrappedValue.dismiss()
-//                        }){
-//                            Image(systemName: "chevron.left").foregroundColor(Color.pigOrange)
-//                                Text("Back")
-//                                .foregroundColor(Color.pigOrange)
-//                        }
-//                    }
+                if isPushed {
+                ToolbarItem(placement: .navigationBarLeading){
+                    Button(action: {
+                        presentationMode.wrappedValue.dismiss()
+                    }){
+                        Image(systemName: "chevron.left").foregroundColor(Color.pigOrange)
+                        Text("Back")
+                            .foregroundColor(Color.pigOrange)
+                    }
+                }}
                 
             }
             
